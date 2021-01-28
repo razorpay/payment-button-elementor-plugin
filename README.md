@@ -1,8 +1,8 @@
 === Razorpay Payment Button Elementor Plugin ===
 Contributors: razorpay
 Tags: razorpay, payments, india, ecommerce
-Tested up to: 1.1
-Stable tag: 1.1
+Tested up to: 5.6
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,8 +35,9 @@ This will enable to collect payments in multiple payment methods such as -
 3. Navigate to Razorpay Buttons Elementor and check the list of buttons available on Razorpay.
 4. Navigate to Pages → All Pages/Add New to embed Payment button to WordPress page.
 5. Press the ‘Edit with Elementor’ button.
-   Now you can drag and drop widgets from the left panel onto the content area, as well as add new sections and columns that make up the page structure
-6. Choose Payment Button using the drop down button.
+6. Scroll down to general categaory and drag and drop widgets from the left panel onto the content area, 
+   as well as add new  sections and columns that make up the page structure
+7. Choose Payment Button using the drop down button.
 
 == Frequently Asked Questions ==
 
