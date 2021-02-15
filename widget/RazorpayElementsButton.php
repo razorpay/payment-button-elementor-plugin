@@ -158,6 +158,10 @@ class RazorpayElementsButton extends Widget_Base {
 				
 		if(isset($settings['select_button']) === true)
 		{
+			if (! function_exists('get_plugin_data')) {
+               		 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+			}
+			
 			$mod_version = get_plugin_data(plugin_dir_path(__DIR__) . 'razorpay-payment-buttons.php')['Version'];
 
 			$dataPlugin = "wordpress-elementor-".$mod_version;
