@@ -1,8 +1,8 @@
 === Razorpay Payment Button Elementor Plugin ===
 Contributors: razorpay
 Tags: razorpay, payments, india, ecommerce
-Tested up to: 5.6
-Stable tag: 1.0
+Tested up to: 5.6.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,16 @@ This will enable to collect payments in multiple payment methods such as -
    as well as add new  sections and columns that make up the page structure
 7. Choose Payment Button using the drop down button.
 
+== Changelog ==
+
+= 1.1 =
+* Bug fixed
+* Tested upto WordPress 5.6.1
+
+= 1.0 =
+* Initial Changes
+* Tested upto WordPress 5.6 
+
 == Frequently Asked Questions ==
 
 = You would need to have the following for the plugin to work seamlessly =
@@ -68,4 +78,3 @@ Visit https://razorpay.com for support requests or email contact@razorpay.com.
 
 The Razorpay Payment Button Elementor plugin is released under the GPLv2 license, same as that
 of WordPress. See the LICENSE file for the complete LICENSE text.
-
