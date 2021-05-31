@@ -114,7 +114,7 @@ class RazorpayElementsButton extends Widget_Base {
 
         try
         {
-            $items = $api->paymentPage->all(['view_type' => 'button', "status" => 'active']);
+            $items = $api->paymentPage->all(['view_type' => 'button', "status" => 'active','count'=> 100]);
         }
         catch (\Exception $e)
         {
@@ -164,7 +164,7 @@ class RazorpayElementsButton extends Widget_Base {
 			
 			$mod_version = get_plugin_data(plugin_dir_path(__DIR__) . 'razorpay-payment-buttons.php')['Version'];
 
-			$dataPlugin = "wordpress-elementor-".$mod_version;
+			$dataPlugin = "wordpress-payment-button-elementor-".$mod_version;
 			?>
 			<form>
 				<script src="https://cdn.razorpay.com/static/widget/payment-button.js" data-plugin="<?php esc_attr_e($dataPlugin) ?>" data-payment_button_id="<?php esc_attr_e( ! empty( $settings['select_button'] ) ? $settings['select_button'] : '' ); ?>"> </script>
