@@ -3,7 +3,7 @@
  * Plugin Name: Razorpay Payment Button Elementor
  * Plugin URI:  https://github.com/razorpay/payment-button-elementor-plugin
  * Description: Razorpay Payment Button Elementor
- * Version:     1.1
+ * Version:     1.2
  * Author:      Razorpay
  * Author URI:  https://razorpay.com
  */
@@ -43,9 +43,9 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
 {
 
 	// Adding constants
-    if (!defined('RZP_BASE_NAME'))
+    if (!defined('RZP_PAYMENT_ELEMENTOR_BASE_NAME'))
     {
-        define('RZP_BASE_NAME', plugin_basename(__FILE__));
+        define('RZP_PAYMENT_ELEMENTOR_BASE_NAME', plugin_basename(__FILE__));
     }
 
     if (!defined('RZP_REDIRECT_URL'))
@@ -62,7 +62,7 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
 		{
 			add_action('admin_menu', array( $this, 'rzp_add_plugin_page'));
 
-			add_filter('plugin_action_links_' . RZP_BASE_NAME, array($this, 'razorpay_plugin_links'));
+			add_filter('plugin_action_links_' . RZP_PAYMENT_ELEMENTOR_BASE_NAME, array($this, 'razorpay_plugin_links'));
 
             $this->settings = new RZP_Payment_Button_Elementor_Setting();
 		}
@@ -104,38 +104,7 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
                      </div>'); 
         } 
 
-        public function get_buttons() 
-        {
-            $buttons = array();
-
-            $api = $this->get_razorpay_api_instance();
-
-            try
-            {
-                $items = $api->paymentPage->all(['view_type' => 'button', "status" => 'active']);
-            }
-            catch (\Exception $e)
-            {
-                $message = $e->getMessage();
-
-                wp_die('<div class="error notice">
-                    <p>RAZORPAY ERROR: Payment button fetch failed with the following message: '.$message.'</p>
-                 </div>');
-            }
-
-            if ($items) 
-            {
-                foreach ($items['items'] as $item) 
-                {
-                    $buttons[] = array(
-                        'id' => $item['id'],
-                        'title' => $item['title']
-                    );
-                }
-            }
-
-            return $buttons;
-        }
+     
 
 		/**
          * Creating the settings link from the plug ins page
