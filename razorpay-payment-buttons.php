@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Razorpay Payment Button Elementor
+ * Plugin Name: Razorpay Payment Button for Elementor
  * Plugin URI:  https://github.com/razorpay/payment-button-elementor-plugin
- * Description: Razorpay Payment Button Elementor
- * Version:     1.2
+ * Description: Razorpay Payment Button for Elementor
+ * Version:     1.3
  * Author:      Razorpay
  * Author URI:  https://razorpay.com
  */
@@ -113,7 +113,7 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
         {
             $pluginLinks = array(
                             'settings' => '<a href="'. esc_url(admin_url('admin.php?page=razorpay_elementor_settings')) .'">Settings</a>',
-                            'docs'     => '<a href="#">Docs</a>',
+                            'docs'     => '<a href="https://razorpay.com/docs/payment-button/supported-platforms/wordpress/elementor/">Docs</a>',
                             'support'  => '<a href="https://razorpay.com/contact/">Support</a>'
                         );
 
