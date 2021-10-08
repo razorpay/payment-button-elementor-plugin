@@ -96,7 +96,7 @@ Connect your WordPress website with your Razorpay account and you're all ready t
 
 == Changelog ==
 
-= 1.3 =
+= 1.2.1 =
 * Updated readme.txt file.
 * Tested upto WordPress 5.8.1
 
