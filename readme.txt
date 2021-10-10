@@ -65,7 +65,7 @@ https://www.youtube.com/watch?v=4MCy8Blo4Pw
 
 = Prerequisites to get started faster with Plugins: =
 
-1. Sign up to create a Razorpay account
+1. Sign up to create a [Razorpay account](https://razorpay.com/payment-buttons/)
 2. Log into your Razorpay account and generate API keys in the test mode. -Download and save API Keys
 3. Create a Payment Button on Razorpay Dashboard
 
@@ -79,7 +79,7 @@ https://www.youtube.com/watch?v=4MCy8Blo4Pw
  [Refer to this Quick Guide](https://razorpay.com/docs/payment-button/supported-platforms/wordpress/elementor/)
     3. Create a Payment Button on Razorpay dashboard - [Quick guide](https://razorpay.com/docs/payment-button/).
 
-For Localhost set-up refere to our [documentation](https://razorpay.com/docs/payment-button/supported-platforms/wordpress/)
+For Localhost set-up refer to our [documentation](https://razorpay.com/docs/payment-button/supported-platforms/wordpress/)
     
 Connect your WordPress website with your Razorpay account and you're all ready to get started with the Razorpay Payment Button.
 
@@ -149,7 +149,7 @@ Safe money movement with our 100% secure ecosystem guarded with PCI DSS complian
 
 = How much does a Razorpay Payment Button Plugin Cost? =
 
-It’s a free WordPress payment gateway plugin built for websites. Add a button on your website with zero-set up cost and get charged with a standard platform fee only when a transaction is made.
+It’s a free WordPress payment gateway plugin. Add a button on your website with zero-set up cost and get charged with a standard platform fee only when a transaction is made.
 
 = What is the platform fee for using Razorpay to accept payments? =
 
