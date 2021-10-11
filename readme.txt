@@ -117,7 +117,7 @@ Connect your WordPress website with your Razorpay account and you're all ready t
 
 = What is Razorpay? =
 
-[Razorpay](https://www.google.com/url?q=https://razorpay.com/&sa=D&source=editors&ust=1631093740507000&usg=AOvVaw3WZuPD9GhfOU4tCIapZ2E_) is a full-stack payments solution that enables thousands of online and offline businesses to accept, process and disburse payments on the web and mobile apps.
+[Razorpay](https://razorpay.com/) is a full-stack payments solution that enables thousands of online and offline businesses to accept, process and disburse payments on the web and mobile apps.
 
 = What’s a WordPress Plugin? =
 
@@ -133,7 +133,7 @@ It helps you add a payment gateway to your WordPress website or blog with a simp
 
 = Do I need a Razorpay account for using plugins? = 
 
-Yes, you will have to sign-up for a Razorpay account. Here’s a [quick guide](https://www.google.com/url?q=https://razorpay.com/docs/payments/sign-up/%23sign-up&sa=D&source=editors&ust=1631093740508000&usg=AOvVaw1-oHjFX4SOLgPUF869QBoR) for you.
+Yes, you will have to sign-up for a Razorpay account. Here’s a [quick guide](https://razorpay.com/docs/payments/sign-up/#sign-up) for you.
 
 = Can I accept UPI and credit card payments on my WordPress website? = 
 
@@ -141,7 +141,7 @@ Yes, with Razorpay Payment Button you can accept payments via 100+ modes, includ
 
 = Can I accept international payments? =
 
-Yes, you can accept international payments with Razorpay Payment Button. Here’s a [quick guide](https://www.google.com/url?q=https://razorpay.com/accept-international-payments/&sa=D&source=editors&ust=1631093740507000&usg=AOvVaw3cBdqSRLf9KhiT8e_J7FQl) for you.
+Yes, you can accept international payments with Razorpay Payment Button. Here’s a [quick guide](https://razorpay.com/accept-international-payments/) for you.
  
 = Is it safe to collect payments from Razorpay? = 
 
@@ -174,10 +174,10 @@ Go the plugin way for better and faster functioning of the Razorpay Payment Butt
 
 Yes, you can customize the text and colour of the button as per your brand style on Razorpay Dashboard
  
-Refer to the Installation section for more details and [Razorpay documentation](https://razorpay.com/docs/payment-button/supported-platforms/wordpress/).
+Refer to the Installation section for more details and [Razorpay documentation](https://razorpay.com/docs/payment-button/supported-platforms/wordpress/elementor/ ).
 
 == Support ==
-[Visit](https://razorpay.com) for support requests or email contact@razorpay.com.
+[Visit](https://razorpay.com/support/) for support requests or email contact@razorpay.com.
 
 == License ==
 
