@@ -3,7 +3,7 @@
  * Plugin Name: Razorpay Payment Button for Elementor
  * Plugin URI:  https://github.com/razorpay/payment-button-elementor-plugin
  * Description: Razorpay Payment Button for Elementor
- * Version:     1.2.2
+ * Version:     1.2.3
  * Author:      Razorpay
  * Author URI:  https://razorpay.com
  */
@@ -15,15 +15,17 @@ require_once __DIR__.'/includes/rzp-btn-settings.php';
 require_once __DIR__.'/includes/rzp-payment-buttons.php';
 require_once __DIR__.'/widget/Widget.php';
 
-
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors;
 
 add_action('admin_enqueue_scripts', 'bootstrap_scripts_enqueue_elementor', 0);
 add_action('admin_post_rzp_btn_elementor_action', 'razorpay_payment_button_elementor_action', 0);
 
-function bootstrap_scripts_enqueue_elementor() 
+function bootstrap_scripts_enqueue_elementor($admin_page)
 {
+    if ($admin_page != 'admin_page_rzp_button_view_elementor') {
+        return;
+    }
     wp_register_style('bootstrap-css-elementor', plugin_dir_url(__FILE__)  . 'public/css/bootstrap.min.css',
                 null, null);
     wp_register_style('button-css-elementor', plugin_dir_url(__FILE__)  . 'public/css/button.css',
@@ -80,10 +82,9 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
             add_submenu_page( esc_attr__( 'razorpay_button_elementor', 'textdomain' ), esc_html__( 'Razorpay Settings', 'textdomain' ),
             'Settings', 'administrator','razorpay_elementor_settings', array( $this, 'razorpay_elementor_settings' ));  
 
-            add_submenu_page( esc_attr__( 'razorpay_button_elementor', 'textdomain' ), esc_html__( 'Razorpay Buttons Elementor', 'textdomain' ),
+            add_submenu_page( esc_attr__( '', 'textdomain' ), esc_html__( 'Razorpay Buttons Elementor', 'textdomain' ),
             'Razorpay Buttons Elementor', 'administrator','rzp_button_view_elementor', array( $this, 'rzp_button_view_elementor' ));
         }
-
 
         /**
          * Initialize razorpay api instance
@@ -103,8 +104,6 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
                         <p>RAZORPAY ERROR: Payment button fetch failed.</p>
                      </div>'); 
         } 
-
-     
 
 		/**
          * Creating the settings link from the plug ins page
