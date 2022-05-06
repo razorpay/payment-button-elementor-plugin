@@ -10,7 +10,6 @@ require_once __DIR__ . '/../includes/errors/payment-button-error-code.php';
 
 class RZP_View_Button_Elementor_Templates
 {
-
     public function __construct()
     {
         $this->razorpay = new RZP_Payment_Button_Elementor_Loader(false);
@@ -26,7 +25,7 @@ class RZP_View_Button_Elementor_Templates
         {
             wp_die("This page consist some request parameters to view response");
         }
-        $pagenum=$_REQUEST['paged'];
+        $pagenum = $_REQUEST['paged'];
         $previous_page_url = admin_url('admin.php?page=razorpay_button_elementor&paged='.$pagenum);
         $button_detail = $this->fetch_button_detail(sanitize_text_field($_REQUEST['btn']));
         
@@ -76,27 +75,27 @@ class RZP_View_Button_Elementor_Templates
         </div>';
 
         $modal = '<div class="overlay"><div class="modal">
-  <form class="modal-content" action="'.esc_url( admin_url('admin-post.php') ).'" method="POST">
-    <div class="container">
-        <div class="modal-header">
-            <h3 class="modal-title">'.$button_detail["modal_title_content"].'</h3>
-        </div>  
-        <div class="modal-body">
-            <div class="text-semi-muted">
-                <p>'.$button_detail["modal_body_content"].'</p>
+        <form class="modal-content" action="'.esc_url( admin_url('admin-post.php') ).'" method="POST">
+            <div class="container">
+                <div class="modal-header">
+                    <h3 class="modal-title">'.$button_detail["modal_title_content"].'</h3>
+                </div>  
+            <div class="modal-body">
+                <div class="text-semi-muted">
+                    <p>'.$button_detail["modal_body_content"].'</p>
+                </div>
+                <div class="Modal__actions">
+                    <button type="button" onclick="'.$hide.'" class="btn btn-default">No, don`t!</button>
+                    <button type="submit" onclick="'.$hide.'" name="btn_action" value="'.$button_detail['btn_pointer_status'].'" class="btn btn-primary">Yes, '.$button_detail['btn_pointer_status'].'</button>
+                    <input type="hidden" name="btn_id" value="'.$button_detail['id'].'">
+                    <input type="hidden" name="paged" value="'.$pagenum.'">
+                    <input type="hidden" name="action" value="rzp_btn_elementor_action">
+                </div>
             </div>
-            <div class="Modal__actions">
-                <button type="button" onclick="'.$hide.'" class="btn btn-default">No, don`t!</button>
-                <button type="submit" onclick="'.$hide.'" name="btn_action" value="'.$button_detail['btn_pointer_status'].'" class="btn btn-primary">Yes, '.$button_detail['btn_pointer_status'].'</button>
-                <input type="hidden" name="btn_id" value="'.$button_detail['id'].'">
-                <input type="hidden" name="paged" value="'.$pagenum.'">
-                <input type="hidden" name="action" value="rzp_btn_elementor_action">
             </div>
-        </div>
+        </form>
     </div>
-  </form>
-</div>
-</div>
+    </div>
 <script type="text/javascript">
     jQuery("'.'.overlay'.'").on("'.'click'.'", function(e) {
       if (e.target !== this) {
@@ -171,5 +170,4 @@ echo $modal;
             'created_at' => date("d F Y", $button_detail['created_at']),
         );
     }
-
 }

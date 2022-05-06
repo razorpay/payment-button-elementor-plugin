@@ -9,12 +9,13 @@ require_once __DIR__.'/../razorpay-sdk/Razorpay.php';
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors;
  
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * @since 1.1.0
  */
-class RazorpayElementsButton extends Widget_Base {
+class RazorpayElementsButton extends Widget_Base
+{
 
 	/**
 	 * Retrieve the widget name.
@@ -25,7 +26,8 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @return string Widget name.
 	 */
-	public function get_name() {
+	public function get_name()
+    {
 		return 'razorpay_button';
 	}
 
@@ -38,8 +40,9 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @return string Widget title.
 	 */
-	public function get_title() {
-		return __( 'Razorpay Button', 'payments-for-elementor' );
+	public function get_title()
+    {
+		return __('Razorpay Button', 'payments-for-elementor');
 	}
 
 	/**
@@ -51,7 +54,8 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @return string Widget icon.
 	 */
-	public function get_icon() {
+	public function get_icon()
+    {
 		return 'fa fa-credit-card-alt';
 	}
 
@@ -69,8 +73,9 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @return array Widget categories.
 	 */
-	public function get_categories() {
-		return array( 'general' );
+	public function get_categories()
+    {
+		return array('general');
 	}
 
 	/**
@@ -82,8 +87,8 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function register_controls() {
-
+	protected function register_controls()
+    {
 		$this->start_controls_section(
 			'razorpay_button',
 			array(
@@ -138,7 +143,6 @@ class RazorpayElementsButton extends Widget_Base {
         return $buttons;
     }
 
-
 	/**
 	 * Render the widget output on the frontend.
 	 *
@@ -148,18 +152,19 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function render() {
-
+	protected function render()
+    {
 		if ( \Elementor\Plugin::instance()->editor->is_edit_mode()){
 			return;
 		}
 		
 		$settings = $this->get_settings_for_display();
 				
-		if(isset($settings['select_button']) === true)
+		if (isset($settings['select_button']) === true)
 		{
-			if (! function_exists('get_plugin_data')) {
-               		 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+			if (! function_exists('get_plugin_data'))
+			{
+			    require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 			}
 			
 			$mod_version = get_plugin_data(plugin_dir_path(__DIR__) . 'razorpay-payment-buttons.php')['Version'];
@@ -182,7 +187,8 @@ class RazorpayElementsButton extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
+	protected function content_template()
+    {
 		?>
 			<# if ( settings.select_button === 'select') { #>
 				<div class="elementor-counter-title">Please select payment button.</div>

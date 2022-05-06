@@ -6,7 +6,8 @@
  * Main Plugin class
  * @since 1.0.0
  */
-class RazorpayElementsFormWidget {
+class RazorpayElementsFormWidget
+{
 
 	/**
 	 * Instance
@@ -29,8 +30,10 @@ class RazorpayElementsFormWidget {
 	 *
 	 * @return Plugin An instance of the class.
 	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
+	public static function instance()
+    {
+		if (is_null(self::$_instance))
+		{
 			self::$_instance = new self();
 		}
 			 
@@ -45,10 +48,10 @@ class RazorpayElementsFormWidget {
 	 * @since 1.2.0
 	 * @access public
 	 */
-	public function __construct() {
-
+	public function __construct()
+    {
 		// Register widgets
-		add_action( 'elementor/widgets/widgets_registered', array( $this, 'register_widgets' ) );
+		add_action('elementor/widgets/widgets_registered', array($this, 'register_widgets'));
 	}
 
 	/**
@@ -59,7 +62,8 @@ class RazorpayElementsFormWidget {
 	 * @since 1.2.0
 	 * @access private
 	 */
-	private function include_widgets_files() {
+	private function include_widgets_files()
+    {
 		require_once 'RazorpayElementsButton.php';
 	}
 
@@ -71,12 +75,13 @@ class RazorpayElementsFormWidget {
 	 * @since 1.2.0
 	 * @access public
 	 */
-	public function register_widgets() {
+	public function register_widgets()
+    {
 		// Its is now safe to include Widgets files
 		$this->include_widgets_files();
 
 		// Register Widgets
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new RazorpayElementsButton );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new RazorpayElementsButton);
 	}
 }
 

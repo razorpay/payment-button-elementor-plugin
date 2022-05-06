@@ -23,7 +23,8 @@ add_action('admin_post_rzp_btn_elementor_action', 'razorpay_payment_button_eleme
 
 function bootstrap_scripts_enqueue_elementor($admin_page)
 {
-    if ($admin_page != 'admin_page_rzp_button_view_elementor') {
+    if ($admin_page != 'admin_page_rzp_button_view_elementor')
+    {
         return;
     }
     wp_register_style('bootstrap-css-elementor', plugin_dir_url(__FILE__)  . 'public/css/bootstrap.min.css',
@@ -56,7 +57,8 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
         define('RZP_REDIRECT_URL', esc_url( admin_url('admin-post.php')));
     }
 
-	class RZP_Payment_Button_Elementor_Loader {
+	class RZP_Payment_Button_Elementor_Loader
+    {
 		/**
 		 * Start up
 		 */
@@ -72,7 +74,6 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
         /**
          * Creating the menu for plugin after load
         **/
-
         public function rzp_add_plugin_page()
         {
             /* add pages & menu items */
@@ -126,7 +127,7 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
 		 */
 		public function rzp_view_buttons_page()
 		{
-			$rzp_payment_buttons = new RZP_Payment_Buttons_Elementor();
+		    $rzp_payment_buttons = new RZP_Payment_Buttons_Elementor();
 
 			$rzp_payment_buttons->rzp_buttons(); 
 		}	
@@ -147,10 +148,8 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
             $new_button = new RZP_View_Button_Elementor();
 
             $new_button->razorpay_view_button();
-        }  
-		
+        }
 	}
-
 }
 		
 /**
@@ -166,4 +165,3 @@ function razorpay_payment_button_elementor_action()
     
     $btn_action->process();
 }
-		

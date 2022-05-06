@@ -6,7 +6,6 @@ class RZP_View_Button_Elementor
 {
     public function __construct()
     {
-
         $this->view_template = new RZP_View_Button_Elementor_Templates();
     }
 
