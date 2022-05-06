@@ -45,7 +45,7 @@ function bootstrap_scripts_enqueue_elementor($admin_page)
 if (!class_exists('RZP_Payment_Button_Elementor_Loader')) 
 {
 
-	// Adding constants
+    // Adding constants
     if (!defined('RZP_PAYMENT_ELEMENTOR_BASE_NAME'))
     {
         define('RZP_PAYMENT_ELEMENTOR_BASE_NAME', plugin_basename(__FILE__));
@@ -57,19 +57,19 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
         define('RZP_REDIRECT_URL', esc_url( admin_url('admin-post.php')));
     }
 
-	class RZP_Payment_Button_Elementor_Loader
+    class RZP_Payment_Button_Elementor_Loader
     {
-		/**
-		 * Start up
-		 */
-		public function __construct()
-		{
-			add_action('admin_menu', array( $this, 'rzp_add_plugin_page'));
+        /**
+         * Start up
+         */
+        public function __construct()
+        {
+            add_action('admin_menu', array( $this, 'rzp_add_plugin_page'));
 
-			add_filter('plugin_action_links_' . RZP_PAYMENT_ELEMENTOR_BASE_NAME, array($this, 'razorpay_plugin_links'));
+            add_filter('plugin_action_links_' . RZP_PAYMENT_ELEMENTOR_BASE_NAME, array($this, 'razorpay_plugin_links'));
 
             $this->settings = new RZP_Payment_Button_Elementor_Setting();
-		}
+        }
 
         /**
          * Creating the menu for plugin after load
@@ -106,7 +106,7 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
                      </div>'); 
         } 
 
-		/**
+        /**
          * Creating the settings link from the plug ins page
         **/
         function razorpay_plugin_links($links)
@@ -121,16 +121,16 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
 
             return $links;
         }
-	
-		/**
-		 * Razorpay Payment Button Page
-		 */
-		public function rzp_view_buttons_page()
-		{
-		    $rzp_payment_buttons = new RZP_Payment_Buttons_Elementor();
+    
+        /**
+         * Razorpay Payment Button Page
+         */
+        public function rzp_view_buttons_page()
+        {
+            $rzp_payment_buttons = new RZP_Payment_Buttons_Elementor();
 
-			$rzp_payment_buttons->rzp_buttons(); 
-		}	
+            $rzp_payment_buttons->rzp_buttons(); 
+        }	
 
         /**
          * Razorpay Setting Page
@@ -149,9 +149,9 @@ if (!class_exists('RZP_Payment_Button_Elementor_Loader'))
 
             $new_button->razorpay_view_button();
         }
-	}
+    }
 }
-		
+        
 /**
 * Instantiate the loader class.
 *
