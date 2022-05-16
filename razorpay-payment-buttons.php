@@ -3,7 +3,7 @@
  * Plugin Name: Razorpay Payment Button for Elementor
  * Plugin URI:  https://github.com/razorpay/payment-button-elementor-plugin
  * Description: Razorpay Payment Button for Elementor
- * Version:     1.2.3
+ * Version:     1.2.4
  * Author:      Razorpay
  * Author URI:  https://razorpay.com
  */
