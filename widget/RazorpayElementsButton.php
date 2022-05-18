@@ -9,102 +9,107 @@ require_once __DIR__.'/../razorpay-sdk/Razorpay.php';
 use Razorpay\Api\Api;
 use Razorpay\Api\Errors;
  
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * @since 1.1.0
  */
-class RazorpayElementsButton extends Widget_Base {
+class RazorpayElementsButton extends Widget_Base
+{
 
-	/**
-	 * Retrieve the widget name.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access public
-	 *
-	 * @return string Widget name.
-	 */
-	public function get_name() {
-		return 'razorpay_button';
-	}
+    /**
+     * Retrieve the widget name.
+     *
+     * @since 1.1.0
+     *
+     * @access public
+     *
+     * @return string Widget name.
+     */
+    public function get_name()
+    {
+        return 'razorpay_button';
+    }
 
-	/**
-	 * Retrieve the widget title.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access public
-	 *
-	 * @return string Widget title.
-	 */
-	public function get_title() {
-		return __( 'Razorpay Button', 'payments-for-elementor' );
-	}
+    /**
+     * Retrieve the widget title.
+     *
+     * @since 1.1.0
+     *
+     * @access public
+     *
+     * @return string Widget title.
+     */
+    public function get_title()
+    {
+        return __('Razorpay Button', 'payments-for-elementor');
+    }
 
-	/**
-	 * Retrieve the widget icon.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access public
-	 *
-	 * @return string Widget icon.
-	 */
-	public function get_icon() {
-		return 'fa fa-credit-card-alt';
-	}
+    /**
+     * Retrieve the widget icon.
+     *
+     * @since 1.1.0
+     *
+     * @access public
+     *
+     * @return string Widget icon.
+     */
+    public function get_icon()
+    {
+        return 'fa fa-credit-card-alt';
+    }
 
-	/**
-	 * Retrieve the list of categories the widget belongs to.
-	 *
-	 * Used to determine where to display the widget in the editor.
-	 *
-	 * Note that currently Elementor supports only one category.
-	 * When multiple categories passed, Elementor uses the first one.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access public
-	 *
-	 * @return array Widget categories.
-	 */
-	public function get_categories() {
-		return array( 'general' );
-	}
+    /**
+     * Retrieve the list of categories the widget belongs to.
+     *
+     * Used to determine where to display the widget in the editor.
+     *
+     * Note that currently Elementor supports only one category.
+     * When multiple categories passed, Elementor uses the first one.
+     *
+     * @since 1.1.0
+     *
+     * @access public
+     *
+     * @return array Widget categories.
+     */
+    public function get_categories()
+    {
+        return array('general');
+    }
 
-	/**
-	 * Register the widget controls.
-	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access protected
-	 */
-	protected function _register_controls() {
+    /**
+     * Register the widget controls.
+     *
+     * Adds different input fields to allow the user to change and customize the widget settings.
+     *
+     * @since 3.1.0
+     *
+     * @access protected
+     */
+    protected function register_controls()
+    {
+        $this->start_controls_section(
+            'razorpay_button',
+            array(
+                'label' => __( 'Razorpay Button', 'payments-for-elementor' )
+            )
+        );
 
-		$this->start_controls_section(
-			'razorpay_button',
-			array(
-				'label' => __( 'Razorpay Button', 'payments-for-elementor' )
-			)
-		);
+        $this->add_control(
+            'select_button',
+            [
+                'label' => __( 'Select Button', 'plugin-domain' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'select',
+                'options' => $this->get_buttons(),
+            ]
+        );
 
-		$this->add_control(
-			'select_button',
-			[
-				'label' => __( 'Select Button', 'plugin-domain' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'select',
-				'options' => $this->get_buttons(),
-			]
-		);
+        $this->end_controls_section();
+    }
 
-		$this->end_controls_section();
-	}
-
-	public function get_buttons() 
+    public function get_buttons()
     {
         $buttons = array();
 
@@ -127,7 +132,7 @@ class RazorpayElementsButton extends Widget_Base {
 
         if ($items) 
         {
-        	$buttons['select'] = 'select';
+            $buttons['select'] = 'select';
 
             foreach ($items['items'] as $item) 
             {
@@ -138,57 +143,59 @@ class RazorpayElementsButton extends Widget_Base {
         return $buttons;
     }
 
+    /**
+     * Render the widget output on the frontend.
+     *
+     * Written in PHP and used to generate the final HTML.
+     *
+     * @since 1.1.0
+     *
+     * @access protected
+     */
+    protected function render()
+    {
+        if (\Elementor\Plugin::instance()->editor->is_edit_mode())
+        {
+            return;
+        }
 
-	/**
-	 * Render the widget output on the frontend.
-	 *
-	 * Written in PHP and used to generate the final HTML.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access protected
-	 */
-	protected function render() {
+        $settings = $this->get_settings_for_display();
 
-		if ( \Elementor\Plugin::instance()->editor->is_edit_mode()){
-			return;
-		}
-		
-		$settings = $this->get_settings_for_display();
-				
-		if(isset($settings['select_button']) === true)
-		{
-			if (! function_exists('get_plugin_data')) {
-               		 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-			}
-			
-			$mod_version = get_plugin_data(plugin_dir_path(__DIR__) . 'razorpay-payment-buttons.php')['Version'];
+        if (isset($settings['select_button']) === true)
+        {
+            if (! function_exists('get_plugin_data'))
+            {
+                require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+            }
 
-			$dataPlugin = "wordpress-payment-button-elementor-".$mod_version;
-			?>
-			<form>
-				<script src="https://cdn.razorpay.com/static/widget/payment-button.js" data-plugin="<?php esc_attr_e($dataPlugin) ?>" data-payment_button_id="<?php esc_attr_e( ! empty( $settings['select_button'] ) ? $settings['select_button'] : '' ); ?>"> </script>
-			</form>
-			<?php
-		}
-	}
+            $mod_version = get_plugin_data(plugin_dir_path(__DIR__) . 'razorpay-payment-buttons.php')['Version'];
 
-	/**
-	 * Render the widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @access protected
-	 */
-	protected function _content_template() {
-		?>
-			<# if ( settings.select_button === 'select') { #>
-				<div class="elementor-counter-title">Please select payment button.</div>
-			<# } else { #>
-				<img src=" <?php echo plugin_dir_url(__FILE__).'../public/image/elementorSVG.svg';?>" alt="Razorpay" >
-			<# } #> 
-		<?php
-	}
+            $dataPlugin = "wordpress-payment-button-elementor-".$mod_version;
+            ?>
+            <form>
+                <script src="https://cdn.razorpay.com/static/widget/payment-button.js" data-plugin="<?php esc_attr_e($dataPlugin) ?>" data-payment_button_id="<?php esc_attr_e(! empty($settings['select_button']) ? $settings['select_button'] : '' ); ?>"> </script>
+            </form>
+            <?php
+        }
+    }
+
+    /**
+     * Render the widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 2.9.0
+     *
+     * @access protected
+     */
+    protected function content_template()
+    {
+        ?>
+            <# if ( settings.select_button === 'select') { #>
+                <div class="elementor-counter-title">Please select payment button.</div>
+            <# } else { #>
+                <img src=" <?php echo plugin_dir_url(__FILE__).'../public/image/elementorSVG.svg';?>" alt="Razorpay" >
+            <# } #>
+        <?php
+    }
 }
