@@ -142,7 +142,7 @@ echo $modal;
             $total_revenue = $payment_item['total_amount_paid'] + $total_revenue;
             $content = '<div class="button-items-detail">
                             <div class="row">
-                                <div class="col-sm-3">'.$payment_item['item']['name'].'</div>
+                                <div class="col-sm-3">'.ucfirst($payment_item['item']['name']).'</div>
                                 <div class="col-sm-3">Revenue</div>
                                 <div class="col-sm-3">Price</div>
                                 <div class="col-sm-3">Unit Sold</div>
