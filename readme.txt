@@ -1,8 +1,8 @@
 === Razorpay Payment Button Elementor Plugin ===
 Contributors: razorpay
 Tags: Payment gateway, Donate button, UPI/credit/debit card, Payment plugin, India
-Tested up to: 5.9.3
-Stable tag: 1.2.4
+Tested up to: 6.0
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,12 @@ Connect your WordPress website with your Razorpay account and you're all ready t
 
 
 == Changelog ==
+
+= 1.2.5 =
+* Fix fatal error: Cannot use isset() on the result of an expression
+* Fixed 'constant already defined' error in sdk
+* Removed unused js files
+* Tested upto WordPress 6.0
 
 = 1.2.4 =
 * Updated Razorpay PHP SDK
