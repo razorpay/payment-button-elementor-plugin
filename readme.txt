@@ -1,8 +1,8 @@
 === Razorpay Payment Button Elementor Plugin ===
 Contributors: razorpay
 Tags: Payment gateway, Donate button, UPI/credit/debit card, Payment plugin, India
-Tested up to: 6.0
-Stable tag: 1.2.5
+Tested up to: 6.6
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
