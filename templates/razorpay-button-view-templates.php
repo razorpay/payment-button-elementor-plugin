@@ -51,7 +51,7 @@ class RZP_View_Button_Elementor_Templates
                         <div class="row">
                             <div class="col-sm-4 panel-label">Button Status</div>
                             <div class="col-sm-8 panel-value">
-                                <span class="status-label">' . esc_html$button_detail['status']) . '</span>
+                                <span class="status-label">' . esc_html($button_detail['status']) . '</span>
                                 <button onclick="'.$show.'" class="status-button">' . esc_html($button_detail['btn_pointer_status']) . '</button>
                             </div>
                         </div>
