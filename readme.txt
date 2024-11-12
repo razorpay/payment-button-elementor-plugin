@@ -96,6 +96,9 @@ Connect your WordPress website with your Razorpay account and you're all ready t
 
 == Changelog ==
 
+= 1.2.6 =
+* Added security enhancements
+
 = 1.2.5 =
 * Fix fatal error: Cannot use isset() on the result of an expression
 * Fixed 'constant already defined' error in sdk
