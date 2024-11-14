@@ -66,7 +66,7 @@ class RZP_View_Button_Elementor_Templates
                             <div class="col-sm-8 panel-value">' . esc_html($button_detail['created_at']) . '</div>
                         </div>
                     </div>
-                    <div class="col-md-7">'.esc_html($button_detail['html_content_item']).'</div>
+                    <div class="col-md-7">'.$button_detail['html_content_item'].'</div>
                 </div>          
             </div>
                   
