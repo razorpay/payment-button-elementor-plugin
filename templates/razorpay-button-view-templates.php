@@ -29,11 +29,9 @@ class RZP_View_Button_Elementor_Templates
         $previous_page_url = admin_url('admin.php?page=razorpay_button_elementor&paged='.$pagenum);
         $button_detail = $this->fetch_button_detail(sanitize_text_field($_REQUEST['btn']));
         
-        $show = "jQuery('.overlay').show()";
-        $hide = "jQuery('.overlay').hide()";
         echo '<div class="wrap">
             <div class="content-header">
-                <a href="'.$previous_page_url.'">
+                <a href="' . esc_url($previous_page_url) . '">
                     <span class="dashicons rzp-dashicons dashicons-arrow-left-alt"></span> Button List
                 </a>
                 <span class="dashicons rzp-dashicons dashicons-arrow-right-alt2"></span>'. esc_html($button_detail['title']) . '
@@ -52,7 +50,7 @@ class RZP_View_Button_Elementor_Templates
                             <div class="col-sm-4 panel-label">Button Status</div>
                             <div class="col-sm-8 panel-value">
                                 <span class="status-label">' . esc_html($button_detail['status']) . '</span>
-                                <button onclick="'.$show.'" class="status-button">' . esc_html($button_detail['btn_pointer_status']) . '</button>
+                                <button onclick="jQuery(\'.overlay\').show()" class="status-button">' . esc_html($button_detail['btn_pointer_status']) . '</button>
                             </div>
                         </div>
                         <div class="row">
@@ -85,10 +83,10 @@ class RZP_View_Button_Elementor_Templates
                     <p>' . esc_html($button_detail["modal_body_content"]) . '</p>
                 </div>
                 <div class="Modal__actions">
-                    <button type="button" onclick="'.$hide.'" class="btn btn-default">No, don`t!</button>
-                    <button type="submit" onclick="'.$hide.'" name="btn_action" value="' . esc_html($button_detail['btn_pointer_status']) . '" class="btn btn-primary">Yes, ' . esc_html($button_detail['btn_pointer_status']) . '</button>
-                    <input type="hidden" name="btn_id" value="' . esc_html($button_detail['id']) . '">
-                    <input type="hidden" name="paged" value="'.$pagenum.'">
+                    <button type="button" onclick="jQuery(\'.overlay\').hide()" class="btn btn-default">No, don`t!</button>
+                    <button type="submit" onclick="jQuery(\'.overlay\').hide()" name="btn_action" value="' . esc_attr($button_detail['btn_pointer_status']) . '" class="btn btn-primary">Yes, ' . esc_html($button_detail['btn_pointer_status']) . '</button>
+                    <input type="hidden" name="btn_id" value="' . esc_attr($button_detail['id']) . '">
+                    <input type="hidden" name="paged" value="' . esc_attr($pagenum) . '">
                     <input type="hidden" name="action" value="rzp_btn_elementor_action">
                 </div>
             </div>
